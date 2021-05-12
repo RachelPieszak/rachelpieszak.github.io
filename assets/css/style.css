@@ -379,16 +379,20 @@ h1, h2, h3, h4, h5, h6 {
 # Header Social Links
 --------------------------------------------------------------*/
 .header-social-links {
-  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .header-social-links a {
   color: #222222;
-  padding-left: 6px;
+  padding: 3px 25px 0 15px;
   display: inline-block;
   line-height: 1px;
   transition: 0.3s;
   font-size: 16px;
+}
+
+.header-social-links a i {
+  font-size: 1.6rem;
 }
 
 .header-social-links a:hover {
