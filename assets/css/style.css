@@ -967,7 +967,9 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  max-height: 600px;
   background: rgba(34, 34, 34, 0.6);
+  border: 3px #dedede solid;
 }
 
 .portfolio .portfolio-wrap::before {
@@ -1021,6 +1023,7 @@ section {
 .portfolio .portfolio-wrap .portfolio-links {
   text-align: center;
   z-index: 4;
+  margin-top: 1.5rem;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
@@ -1029,6 +1032,15 @@ section {
   font-size: 28px;
   display: inline-block;
   transition: 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-links span {
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.fluid-wrapper {
+  max-height: 600px;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
