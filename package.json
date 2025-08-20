@@ -2,7 +2,7 @@
   "name": "rachelpieszak.github.io",
   "version": "1.0.0",
   "description": "You can use the [editor on GitHub](https://github.com/RachelPieszak/rachelpieszak.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.",
-  "main": "index.html",
+
   "scripts": {
     "parcel": "parcel index.html",
     "build": "parcel build index.html",
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/RachelPieszak/rachelpieszak.github.io#readme",
   "dependencies": {
-    "parcel": "2.0.0-beta.2"
+    "parcel": "2.15.4"
   }
 }
