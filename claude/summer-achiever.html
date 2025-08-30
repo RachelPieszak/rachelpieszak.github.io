@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Achiever Program</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 18px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        .program-highlight {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .program-highlight::before {
+            content: '🌟';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .program-highlight h2 {
+            color: #d63031;
+            margin: 0 0 15px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .program-highlight p {
+            color: #2c3e50;
+            font-size: 16px;
+            margin: 0;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature h3 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .feature p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .key-details {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            color: white;
+        }
+        .key-details h3 {
+            color: white;
+            margin: 0 0 20px 0;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        .detail-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .detail-label {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+        .detail-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .benefits {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            color: white;
+        }
+        .benefits h3 {
+            color: white;
+            margin: 0 0 20px 0;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .benefits ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .benefits li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+        }
+        .benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .cta {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 6px 20px rgba(232, 67, 147, 0.3);
+        }
+        .cta h3 {
+            margin: 0 0 15px 0;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .cta p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .cta a {
+            display: inline-block;
+            background: white;
+            color: #e84393;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        .cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .closing {
+            color: #2c3e50;
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 30px 0;
+        }
+        .signature {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            color: #495057;
+            text-align: center;
+        }
+        .signature strong {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🌞 Summer Achiever Program 🌞</h1>
+            <p>Philadelphia School District</p>
+        </div>
+    <div class="content">
+        <div class="greeting">
+            Dear Parents and Families,
+        </div>
+        
+        <p style="color:black;">I hope this message finds you well! I wanted to share information about an excellent summer program opportunity for students entering grades 1-8.</p>
+        
+        <div class="program-highlight">
+            <h2>Summer Achiever Program</h2>
+            <p>The Summer Achiever program is a <strong>free, full-day enrichment program</strong> designed for students entering 1st through 8th grade in Fall 2025. This comprehensive program offers the perfect blend of fun and learning!</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🏕️ Summer Camp Fun</h3>
+                <p>Traditional summer camp activities and experiences that make learning enjoyable and engaging</p>
+            </div>
+            <div class="feature">
+                <h3>📚 Academic Excellence</h3>
+                <p>Targeted support in math and reading to maintain and build upon essential skills</p>
+            </div>
+            <div class="feature">
+                <h3>🎯 School Readiness</h3>
+                <p>Preparation that helps students start the next grade feeling confident and ready to succeed</p>
+            </div>
+        </div>
+        
+        <div class="key-details">
+            <h3>📋 Program Details</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Who</div>
+                    <div class="detail-value">Grades 1-8</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Cost</div>
+                    <div class="detail-value">FREE</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Format</div>
+                    <div class="detail-value">Full-Day</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Focus</div>
+                    <div class="detail-value">Math & Reading</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <h3>✨ Why Choose Summer Achiever?</h3>
+            <ul>
+                <li>Prevent summer learning loss - Keep academic skills sharp during break</li>
+                <li>Build confidence - Strengthen foundation in core subjects</li>
+                <li>Social connections - Make new friends in a supportive environment</li>
+                <li>Smooth transition - Start the new school year prepared and excited</li>
+            </ul>
+        </div>
+        
+        <div class="cta">
+            <h3>🚀 Ready to Learn More?</h3>
+            <p>Visit the Philadelphia School District summer programs page for complete information and application details:</p>
+            <a href="https://www.philasd.org/academics/summerprograms/">Learn More & Apply</a>
+        </div>
+        
+        <div class="closing">
+            <p>This is an excellent opportunity for your child to enjoy their summer while staying academically engaged and building lasting friendships. The combination of fun activities and educational support makes Summer Achiever a valuable investment in your child's continued success.</p>
+            
+            <p>If you have any questions or would like to discuss whether this program might be a good fit for your child, please don't hesitate to reach out.</p>
+        </div>
+        
+        <!-- <div class="signature">
+            <p><strong>[Your Name]</strong><br>
+            [Your Title/Position]<br>
+            [Phone Number]<br>
+            [Email Address]</p>
+        </div> -->
+    </div>
+</div>
+</body>
+</html>
