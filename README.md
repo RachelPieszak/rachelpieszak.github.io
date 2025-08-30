@@ -69,7 +69,7 @@ Open GitHub Desktop app, and check all the changes out.
 
 - Add a Summary, so like "feat: added school portfolio item"
 - Push `Commit to Main` button
-- Then at the top, push `Publish`
+- Then at the top, push `Push origin`
 
 > (Give it a few minutes... then...)
 
