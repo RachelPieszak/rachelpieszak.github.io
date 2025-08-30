@@ -62,3 +62,16 @@ Now that you have the file/image here in this project, you can go to `portfolio.
 Look above to see how to add it to portfolio.
 
 Buzi 💜 -M
+
+## Pushing to Production
+
+Open GitHub Desktop app, and check all the changes out.
+
+- Add a Summary, so like "feat: added school portfolio item"
+- Push `Commit to Main` button
+- Then at the top, push `Publish`
+
+> (Give it a few minutes... then...)
+
+Check out the live site at: 
+https://rachelpieszak.github.io
