@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer of Wonder - Free Library</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fff 0%, #fff 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .flyer {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="white" opacity="0.3"/><circle cx="75" cy="75" r="1.5" fill="white" opacity="0.4"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.5"/><circle cx="10" cy="60" r="1.5" fill="white" opacity="0.3"/><circle cx="90" cy="30" r="1" fill="white" opacity="0.4"/></svg>') repeat;
+            animation: sparkle 20s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-10px) translateY(-10px) rotate(360deg); }
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.4em;
+            color: white;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 40px 30px;
+            background: white;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 3px solid #ff6b6b;
+            box-shadow: 0 8px 16px rgba(255,107,107,0.2);
+        }
+        
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .activity-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.3s ease;
+            border: 2px solid #4ecdc4;
+        }
+        
+        .activity-card:hover {
+            transform: perspective(1000px) rotateX(5deg) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(78,205,196,0.3);
+        }
+        
+        .activity-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .dates-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            border: 3px solid #fa709a;
+            box-shadow: 0 8px 16px rgba(250,112,154,0.3);
+        }
+        
+        .date-item {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 10px;
+            box-shadow: 0 8px 16px rgba(255,107,107,0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(255,107,107,0.4);
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: #4ecdc4;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .decorative-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .decorative-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .decorative-element:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .decorative-element:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .age-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="decorative-element"></div>
+        <div class="decorative-element"></div>
+        <div class="decorative-element"></div>
+        
+        <div class="header">
+            <h1>SUMMER OF WONDER</h1>
+            <div class="subtitle">Find Your Story!</div>
+        </div>
+        
+        <div class="content">
+            <div class="tagline">
+                🌟 Expand Your Mind & Keep Summer Exciting! 🌟
+            </div>
+            
+            <div class="highlight-box">
+                <h2 style="color: #ff6b6b; margin-bottom: 15px; font-family: 'Poppins', sans-serif;">What's Your Story?</h2>
+                <p style="font-size: 1.1em; line-height: 1.6;">From artistic inspiration to STEAM building projects, from writing groups to world exploration - connect with your favorite library activities or try something brand new!</p>
+                
+                <div style="margin-top: 20px;">
+                    <span class="age-badge">Kids</span>
+                    <span class="age-badge">Teens</span>
+                    <span class="age-badge">Adults</span>
+                    <span class="age-badge">All Ages</span>
+                </div>
+            </div>
+            
+            <div class="activities">
+                <div class="activity-card">
+                    <div class="activity-icon">🎨</div>
+                    <h3>Artistic Inspiration</h3>
+                    <p>Creative projects & artistic exploration</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🔬</div>
+                    <h3>STEAM Projects</h3>
+                    <p>Science, Technology, Engineering, Arts & Math</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">✍️</div>
+                    <h3>Writing Groups</h3>
+                    <p>Share stories & improve your writing</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🌍</div>
+                    <h3>World Exploration</h3>
+                    <p>Discover new cultures & places</p>
+                </div>
+            </div>
+            
+            <div class="dates-box">
+                <h2 style="color: white; margin-bottom: 20px; font-family: 'Poppins', sans-serif; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">📅 Important Dates</h2>
+                
+                <div class="date-item">
+                    <strong style="color: #fa709a;">June 1 - August 31</strong><br>
+                    Online sign-up for points, badges & mini-challenges
+                </div>
+                
+                <div class="date-item">
+                    <strong style="color: #fa709a;">June 14 - August 13</strong><br>
+                    Get Summer of Wonder passports at your neighborhood library
+                </div>
+                
+                <div class="date-item">
+                    <strong style="color: #fa709a;">Thursdays at 11:00 AM</strong><br>
+                    Live virtual programs for children & teens (starting June 10)
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 25px; border-radius: 20px; margin: 25px 0; text-align: center; border: 3px solid #4ecdc4;">
+                <h3 style="color: #333; margin-bottom: 15px; font-family: 'Fredoka', sans-serif;">🏆 Earn Points & Badges!</h3>
+                <p style="font-size: 1.1em; color: #333; line-height: 1.5;">Participate in reading, book reviews, projects, games, and virtual events. Join 2-3 week focused mini-challenges!</p>
+            </div>
+            
+            <div class="cta-section">
+                <h2 style="margin-bottom: 20px; font-family: 'Poppins', sans-serif;">Ready to Begin Your Adventure?</h2>
+                
+                <div style="background: white; border-radius: 15px; padding: 20px; margin: 20px 0; color: #333;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">How to Get Started:</h3>
+                    <p style="margin-bottom: 10px;"><strong>📝 Sign up online:</strong> freelibrary.beanstack.org/reader365</p>
+                    <p style="margin-bottom: 10px;"><strong>📍 Visit your neighborhood library</strong> to get a Summer of Wonder passport</p>
+                    <p><strong>📅 Check the events calendar:</strong> libwww.freelibrary.org/calendar</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Free Library of Philadelphia</strong></p>
+            <p>Prevent summer learning loss • Stay curious • Have fun</p>
+            
+            <div class="social-links">
+                <strong>Follow Youth Services:</strong><br>
+                Facebook: @FLPYouthServices | Instagram: @flpyouthservices | Twitter: @FLP_Youth
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactive sparkle effects
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.width = '6px';
+            sparkle.style.height = '6px';
+            sparkle.style.background = '#fff';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '1000';
+            sparkle.style.boxShadow = '0 0 10px #fff';
+            
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            
+            document.body.appendChild(sparkle);
+            
+            sparkle.animate([
+                { opacity: 0, transform: 'scale(0)' },
+                { opacity: 1, transform: 'scale(1)' },
+                { opacity: 0, transform: 'scale(0)' }
+            ], {
+                duration: 2000,
+                easing: 'ease-out'
+            }).addEventListener('finish', () => {
+                sparkle.remove();
+            });
+        }
+        
+        // Create sparkles every 3 seconds
+        setInterval(createSparkle, 3000);
+        
+        // Add hover effects to activity cards
+        const cards = document.querySelectorAll('.activity-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'perspective(1000px) rotateX(5deg) translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) translateY(0px) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
